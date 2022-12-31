@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom'
 
 const Navigation = () => {
     return (
-        <nav>
-            <Link to="/">PrivateRoute</Link>
-            <Link to="/login">Login</Link>
-        </nav>
+        <div className="App">
+            <nav>
+                <Link to="/">PrivateRoute</Link>
+                <br />
+                <Link to="/login">Login</Link>
+            </nav>
+        </div>
+
     )
 }
 

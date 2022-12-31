@@ -1,13 +1,8 @@
-import { create } from 'domain'
-import React, { createContext, useState } from 'react'
-import { useContext } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import Navigation from './Navigation'
 
-type Props = {
-}
-
-const Login = (props: Props) => {
+const Login = () => {
     const CORRECT_USER: string = "admin"
     const CORRECT_PASS: string = "admin123"
 
@@ -20,7 +15,6 @@ const Login = (props: Props) => {
     const handleForm = (event: React.SyntheticEvent) => {
         event.preventDefault()
         if (username === CORRECT_USER && pass === CORRECT_PASS) {
-            console.log("good")
             setIsAuth(true)
         }
         else {
@@ -31,26 +25,17 @@ const Login = (props: Props) => {
     const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.preventDefault()
         setPass(event.target.value)
-        console.log(pass)
-
     }
 
     const handleUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.preventDefault()
         setUsername(event.target.value)
-        console.log(username)
-    }
-
-    const handleLogout = (event: React.MouseEvent<HTMLInputElement>) => {
-        event.preventDefault()
-        setIsAuth(false)
     }
 
     return (
-        <>
+        <div className="App">
             {isAuth && <Navigate to={'/'} />}
             <Navigation />
-            <button>Logout</button>
             <form onSubmit={e => handleForm(e)}>
                 <div>
                     Username
@@ -63,7 +48,7 @@ const Login = (props: Props) => {
                 <button onSubmit={e => e.preventDefault()}>Login</button>
             </form>
             {isAuth ? <p>Zalogowany</p> : <p>Niezaloogowany</p>}
-        </>
+        </div>
 
     )
 }

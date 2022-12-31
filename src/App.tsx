@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Login, { GlobalAuthContext } from './Login';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -13,12 +12,10 @@ function App() {
     {
       path: "/",
       element: <PrivateRoute />,
-      // errorElement: <Error />,
     },
     {
       path: "/login",
       element: <Login />,
-      // errorElement: <Error />,
     },
 
   ]);
